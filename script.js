@@ -564,3 +564,105 @@ window.downloadAudioOnly = downloadAudioOnly;
 window.showVideoDetails = showVideoDetails;
 window.playVideoSimulation = playVideoSimulation;
 window.pauseVideoSimulation = pauseVideoSimulation;
+// REAL TIKTOK DOWNLOAD FUNCTION
+async function downloadRealTikTok(videoUrl) {
+    showNotification('🔄 Real TikTok video processing...', 'info');
+    
+    try {
+        // Use free TikTok downloader APIs
+        const apis = [
+            `https://api.tiklydown.com/api/download?url=${encodeURIComponent(videoUrl)}`,
+            `https://www.tikwm.com/api/?url=${encodeURIComponent(videoUrl)}`,
+            `https://tikdown.org/api?url=${encodeURIComponent(videoUrl)}`
+        ];
+        
+        let videoData = null;
+        
+        // Try each API
+        for (let apiUrl of apis) {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                if (data && (data.data?.play || data.data?.wmplay || data.videoUrl)) {
+                    videoData = data;
+                    break;
+                }
+            } catch (error) {
+                console.log(`API failed: ${apiUrl}`);
+                continue;
+            }
+        }
+        
+        if (videoData) {
+            // Get video URL from response
+            const videoDownloadUrl = videoData.data?.play || 
+                                   videoData.data?.wmplay || 
+                                   videoData.videoUrl ||
+                                   videoData.data?.hdplay;
+            
+            if (videoDownloadUrl) {
+                // Create actual download link
+                const link = document.createElement('a');
+                link.href = videoDownloadUrl;
+                link.download = 'tiktok_video.mp4';
+                link.target = '_blank';
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showNotification('✅ Real video download started!', 'success');
+                return;
+            }
+        }
+        
+        // If all APIs fail, show manual download option
+        showManualDownloadOption(videoUrl);
+        
+    } catch (error) {
+        console.error('Download error:', error);
+        showManualDownloadOption(videoUrl);
+    }
+}
+
+// MANUAL DOWNLOAD OPTION
+function showManualDownloadOption(videoUrl) {
+    showNotification('⚠️ Direct download failed. Showing alternatives...', 'info');
+    
+    const modal = createModal();
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>📥 Alternative Download Options</h3>
+            
+            <div class="download-options">
+                <div class="option-card">
+                    <h4>Option 1: Use TikTok Downloader Apps</h4>
+                    <p>Try these free apps:</p>
+                    <ul>
+                        <li>Snaptik</li>
+                        <li>SSSTik</li>
+                        <li>MusicallyDown</li>
+                    </ul>
+                </div>
+                
+                <div class="option-card">
+                    <h4>Option 2: Copy Video URL</h4>
+                    <p>Use this URL in other downloaders:</p>
+                    <input type="text" value="${videoUrl}" readonly style="width: 100%; padding: 0.5rem; margin: 0.5rem 0;">
+                    <button onclick="copyToClipboard('${videoUrl}')">Copy URL</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    setupModal(modal);
+}
+
+// COPY TO CLIPBOARD
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('✅ URL copied to clipboard!', 'success');
+    });
+}
