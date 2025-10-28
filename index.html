@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vSave.in - TikTok Video Downloader</title>
+    <meta name="description" content="TikTok videos बिना वॉटरमार्क डाउनलोड करें - MP4, MP3, बल्क डाउनलोड, प्रोफाइल डाउनलोड और रिंगटोन मेकर">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>vSave.in</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">होम</a>
+                <a href="#features" class="nav-link">फीचर्स</a>
+                <a href="#how-to-use" class="nav-link">कैसे इस्तेमाल करें</a>
+                <button id="theme-toggle" class="theme-toggle">🌙</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>TikTok Videos डाउनलोड करें <span class="highlight">बिना वॉटरमार्क</span></h1>
+                <p>MP4, MP3, बल्क डाउनलोड, प्रोफाइल डाउनलोड और रिंगटोन मेकर - सब कुछ फ्री में!</p>
+                
+                <div class="download-form">
+                    <input type="text" id="video-url" placeholder="TikTok video URL पेस्ट करें...">
+                    <button id="download-btn" class="btn-primary">डाउनलोड करें</button>
+                </div>
+                
+                <div class="quick-options">
+                    <button class="option-btn" data-type="mp4">MP4 डाउनलोड</button>
+                    <button class="option-btn" data-type="mp3">MP3 डाउनलोड</button>
+                    <button class="option-btn" data-type="bulk">बल्क डाउनलोड</button>
+                    <button class="option-btn" data-type="profile">प्रोफाइल डाउनलोड</button>
+                    <button class="option-btn" data-type="ringtone">रिंगटोन मेकर</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">हमारे फीचर्स</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>TikTok डाउनलोड</h3>
+                    <p>लिंक पेस्ट करें → MP4/MP3 डाउनलोड करें (बिना वॉटरमार्क, HD)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>बल्क डाउनलोड</h3>
+                    <p>5-10 वीडियोज़ एक साथ डाउनलोड करें</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>प्रोफाइल डाउनलोड</h3>
+                    <p>@username डालें → सारे वीडियोज़ सेव करें</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>रिंगटोन मेकर</h3>
+                    <p>MP3 को 30 सेकंड कट करें (रिंगटोन के लिए)</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>प्रिव्यू</h3>
+                    <p>डाउनलोड से पहले वीडियो देखें</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌓</div>
+                    <h3>डार्क मोड</h3>
+                    <p>कूल UI (मोबाइल/पीसी पर)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="how-to-use" class="how-to-use">
+        <div class="container">
+            <h2 class="section-title">कैसे इस्तेमाल करें</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>TikTok ऐप खोलें</h3>
+                    <p>वह वीडियो चुनें जिसे आप डाउनलोड करना चाहते हैं</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>शेयर बटन दबाएं</h3>
+                    <p>"कॉपी लिंक" पर क्लिक करें</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>लिंक पेस्ट करें</h3>
+                    <p>vSave.in पर लिंक पेस्ट करें और डाउनलोड करें</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Options -->
+    <section class="download-options">
+        <div class="container">
+            <h2 class="section-title">डाउनलोड ऑप्शन्स</h2>
+            <div class="options-grid">
+                <div class="option-card">
+                    <h3>HD Video</h3>
+                    <p>बिना वॉटरमार्क HD वीडियो</p>
+                    <button class="btn-secondary mp4-download">MP4 डाउनलोड</button>
+                </div>
+                <div class="option-card">
+                    <h3>Audio Only</h3>
+                    <p>सिर्फ ऑडियो MP3 फॉर्मेट में</p>
+                    <button class="btn-secondary mp3-download">MP3 डाउनलोड</button>
+                </div>
+                <div class="option-card">
+                    <h3>Profile Download</h3>
+                    <p>पूरी प्रोफाइल के वीडियोज़</p>
+                    <button class="btn-secondary profile-download">प्रोफाइल डाउनलोड</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>vSave.in</h3>
+                    <p>TikTok Videos डाउनलोड करें बिना वॉटरमार्क</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 vSave.in. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
